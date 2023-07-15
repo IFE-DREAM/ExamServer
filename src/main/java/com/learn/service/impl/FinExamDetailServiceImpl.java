@@ -1,5 +1,7 @@
 package com.learn.service.impl;
 
+import com.learn.domain.FinExamDetail;
+import com.learn.dto.FinExamDetailDTO;
 import com.learn.mapper.FinExamDetailMapper;
 import com.learn.service.FinExamDetailService;
 import com.learn.utils.ResultModel;
@@ -13,12 +15,17 @@ import java.util.List;
 public class FinExamDetailServiceImpl implements FinExamDetailService {
     @Autowired
     FinExamDetailMapper finExamDetailMapper;
+    @Autowired
+    FinExamDetail finExamDetail;
 
 
     @Override
-    public ResultModel<List<FinExamDetailVO>> findAll(int id) {
+    public ResultModel<List<FinExamDetailVO>> findAll(FinExamDetailDTO finExamDetailDTO) {
         ResultModel<List<FinExamDetailVO>> resultModel = new ResultModel<>();
-        List<FinExamDetailVO> finExamDetailList = finExamDetailMapper.findAll(id);
+        finExamDetail.setStudent_id(finExamDetailDTO.getStudent_id());
+        finExamDetail.setSubject_id(finExamDetailDTO.getSubject_id());
+
+        List<FinExamDetailVO> finExamDetailList = finExamDetailMapper.findAll(finExamDetail);
 
         if(finExamDetailList.isEmpty()){
             resultModel.setCode(404);
