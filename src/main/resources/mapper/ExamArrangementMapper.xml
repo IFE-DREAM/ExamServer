@@ -7,7 +7,7 @@
 <mapper namespace="com.learn.mapper.ExamArrangementMapper">
 
     <select id="findAll" resultType="examArrangementVO" parameterType="int">
-        select t_subject.`name` as 'course_name' , t_exam_schedule.exam_name ,room,start_time,end_time   from t_electives,t_exam_schedule,t_subject
+        select course_id,t_subject.`name` as 'course_name' , t_exam_schedule.exam_name ,room,start_time,end_time   from t_electives,t_exam_schedule,t_subject
         where  t_electives.subject_id = t_exam_schedule.course_id and t_electives.subject_id = t_subject.subject_id and student_id = #{student_id}
     </select>
 

@@ -1,10 +1,19 @@
 package com.learn.vo;
 
 public class ExamArrangementVO {
+    private Integer course_id;
     private String exam_name;
     private String course_name;
     private String room;
     private String start_time;
+
+    public Integer getCourse_id() {
+        return course_id;
+    }
+
+    public void setCourse_id(Integer course_id) {
+        this.course_id = course_id;
+    }
 
     public String getExam_name() {
         return exam_name;
