@@ -12,7 +12,7 @@ public class ExamAnswerController {
     @Autowired
     private ExamAnswerService examAnswerService;
 
-    @PutMapping("/examAnswers") // 查询课程列表并进行选课
+    @PutMapping("/examAnswers") // 添加或修改答卷信息
     public ResultModel findAll(ExamAnswerDTO examAnswerDTO){
         return examAnswerService.saveAnswer(examAnswerDTO);
     }
